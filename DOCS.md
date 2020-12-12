@@ -7,14 +7,11 @@
 <!-- BEGIN TOC -->
 
 - [handlers](#handlers)
-  - [artify.js](#srchandlersartifyjs)
-  - [change-separator.js](#srchandlerschange-separatorjs)
+  - [playSound.js](#srchandlersplaySoundjs)
+  - [removeTransition.js](#srchandlersremoveTransitionjs)
 - [listeners](#listeners)
-  - [change-separator.js](#srclistenerschange-separatorjs)
-  - [inputting.js](#srclistenersinputtingjs)
-- [logic](#logic)
-  - [reverse.js](#srclogicreversejs)
-- [data.js](#srcdatajs)
+  - [keydown.js](#srclistenerskeydownjs)
+  - [transitioned.js](#srclistenerstransitionedjs)
 - [init.js](#srcinitjs)
 
 <!-- END TOC -->
@@ -35,31 +32,31 @@ Handler function define user interactions. They will:
 
 ---
 
-### [./src/handlers/artify.js](./src/handlers/artify.js?study)
+### [./src/handlers/playSound.js](./src/handlers/playSound.js?study)
 
-<a name="artifyHandler"></a>
+<a name="playSound"></a>
 
-## artifyHandler
+## playSound(event)
 
-creates a mirror-image rendering of the user input and displays the growing artwork
+play a music when the user press the nine keys , which are connected to audio files
 
-| Param | Type               | Description                                                |
-| ----- | ------------------ | ---------------------------------------------------------- |
-| event | <code>Event</code> | triggered whenever a user releases a key in the input area |
+| Param | Type               | Description                                          |
+| ----- | ------------------ | ---------------------------------------------------- |
+| event | <code>Event</code> | triggered whenever a user press one of the nine keys |
 
 ---
 
-### [./src/handlers/change-separator.js](./src/handlers/change-separator.js?study)
+### [./src/handlers/removeTransition.js](./src/handlers/removeTransition.js?study)
 
-<a name="changeSeparatorHandler"></a>
+<a name="removeTransition"></a>
 
-## changeSeparatorHandler
+## removeTransition(event)
 
-changes the program's separator value
+create remove transition function which will stop the function playSound if the user press any one of the nine keys during a short period
 
-| Param | Type               | Description                                                 |
-| ----- | ------------------ | ----------------------------------------------------------- |
-| event | <code>Event</code> | triggered whenever a user types in the separator input area |
+| Param | Type               | Description                                                                               |
+| ----- | ------------------ | ----------------------------------------------------------------------------------------- |
+| event | <code>Event</code> | triggered whenever a user press twice the same key or on of the nine keys at short period |
 
 [TOP](#DOCS)
 
@@ -75,80 +72,29 @@ You can use the same handler in many different listeners, or add more than one l
 
 ---
 
-### [./src/listeners/change-separator.js](./src/listeners/change-separator.js?study)
-
-<a name="change separator
-calls handler that changes the mirror-arts separator"></a>
-
-## change separator
-
-calls handler that changes the mirror-arts separator
-
----
-
-### [./src/listeners/inputting.js](./src/listeners/inputting.js?study)
+### [./src/listeners/keydown.js](./src/listeners/keydown.js?study)
 
 <a name="user input
-calls the reverseHandler when a user types in the input field"></a>
+calls the reverseHandler when a user pressed at a short period"></a>
 
 ## user input
 
-calls the reverseHandler when a user types in the input field
+calls the reverseHandler when a user pressed at a short period
+
+---
+
+### [./src/listeners/transitioned.js](./src/listeners/transitioned.js?study)
+
+<a name="stop the transition 
+calls handler that stop the transition"></a>
+
+## stop the transition
+
+calls handler that stop the transition
 
 [TOP](#DOCS)
 
 ---
-
----
-
-# Logic
-
-Logic functions are pure functions. They take primitives, objects or arrays as arguments and they return primitives, objects or arrays. Handlers will use logic functions to transform user input.
-
-Logic functions will _never_ ...
-
-- read from the DOM
-- write to the DOM
-- use events
-- use prompt/alert/confirm
-- use variables that are not parameters
-- use variables that are not declared locally
-
----
-
-### [./src/logic/reverse.js](./src/logic/reverse.js?study)
-
-<a name="reverseLogic"></a>
-
-## reverseLogic ⇒ <code>string</code>
-
-reverses a string
-
-**Returns**: <code>string</code> - the string reversed
-
-| Param | Type                | Description         |
-| ----- | ------------------- | ------------------- |
-| input | <code>string</code> | a string to reverse |
-
-[TOP](#DOCS)
-
----
-
----
-
-## [./src/data.js](./src/data.js?study)
-
-<a name="data"></a>
-
-## data
-
-data that is saved and used between user interactionss
-
-**Properties**
-
-| Name      | Type                | Description           |
-| --------- | ------------------- | --------------------- |
-| mirrorArt | <code>string</code> | the full user artwork |
 
 ---
 
