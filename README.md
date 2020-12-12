@@ -1,4 +1,3 @@
-
 # Drum-kit 
 
 > A simple website allows the user to press nine different keys and listen to different sound associated with changes in the size and border of the keys , when the user press different keys during short period  ,the user will hear a sound like a drum. 
